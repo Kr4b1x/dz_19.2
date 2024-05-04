@@ -1,4 +1,3 @@
-<!doctype html>
 {% extends 'catalog/base.html' %}
 {% block content %}
 {% load my_tags %}
@@ -6,15 +5,16 @@
         <div class="col-3">
             <div class="card mb-4 box-shadow">
                 <div class="card-header">
-                    <h4 class="my-0 font-weight-normal">{{ catalog.name }}</h4>
+                    <h4 class="my-0 font-weight-normal">{{ object.title }} ({{ object.slug }})</h4>
                 </div>
                 <div class="card-body">
-                    <img class="card-img-top" src="{{ catalog.image | media_filter }}">
+                    <img class="card-img-top" src="{{ object.image | media_filter }}">
                     <ul class="list-unstyled mt-3 mb-4 text-start m-3">
-                        <li>- {{ catalog.description }}</li>
+                        <li>- {{ object.body }}</li>
                     </ul>
-                    <h4 class="card-title pricing-card-title">{{ catalog.price }} руб.</h4>
-                    <button type="button" class="btn btn-lg btn-block btn-outline-primary">Купить</button>
+                    <div class="card-footer text-centr">
+                        Просмотры: {{ object.view_count }}
+                    </div>
                 </div>
             </div>
         </div>
