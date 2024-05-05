@@ -7,7 +7,7 @@
     </div>
     <div class="row text-center">
         {% for object in object_list %}
-        <div class="col-4">
+        <div class="col-6">
             <div class="card mb-4 box-shadow">
                 <div class="card-header">
                     <h4 class="my-0 font-weight-normal">{{ object.title }}</h4>
@@ -25,6 +25,13 @@
                                class="btn btn-lg btn-block btn-outline-primary">Изменить</a>
                             <a href="{% url 'bloging:delete' object.pk %}" type="button"
                                class="btn btn-lg btn-block btn-outline-primary">Удалить</a>
+                            {% if object.is_published %}
+                            <a href="{% url 'bloging:toogle_activity' object.pk %}" type="button"
+                               class="btn btn-lg btn-block btn-outline-primary">Активировать</a>
+                            {% else %}
+                            <a href="{% url 'bloging:toogle_activity' object.pk %}" type="button"
+                               class="btn btn-lg btn-block btn-outline-danger">Деактивировать</a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
