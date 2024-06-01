@@ -9,13 +9,19 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('bloging', '0002_alter_blog_body_alter_blog_create_at_and_more'),
+        ("bloging", "0002_alter_blog_body_alter_blog_create_at_and_more"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='blog',
-            name='user',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to=settings.AUTH_USER_MODEL, verbose_name='Создан пользователем'),
+            model_name="blog",
+            name="user",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                to=settings.AUTH_USER_MODEL,
+                verbose_name="Создан пользователем",
+            ),
         ),
     ]
